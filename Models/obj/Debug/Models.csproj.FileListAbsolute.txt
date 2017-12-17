@@ -1,0 +1,10 @@
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\Models.dll.config
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\Models.dll
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\Models.pdb
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\EntityFramework.dll
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\EntityFramework.xml
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\obj\Debug\Models.dll
+E:\EPU\EPU_15.12.2017_commit\EPUWeb\Models\obj\Debug\Models.pdb
