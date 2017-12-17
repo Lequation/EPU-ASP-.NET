@@ -26,7 +26,7 @@ namespace EPUWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
-            var result = new AccountModel().Login(model.UserName, model.Password);
+            var result = new AccountService().Login(model.UserName, model.Password);
             if(result && ModelState.IsValid)
             {
                 return RedirectToAction("Index", "Home");

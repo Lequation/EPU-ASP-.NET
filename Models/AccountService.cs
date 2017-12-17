@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class AccountModel
+    public class AccountService
     {
         private EPUDbContext db = null;
-        public AccountModel()
+        public AccountService()
         {
             db = new EPUDbContext();
         }
@@ -25,7 +25,7 @@ namespace Models
             };
             return db.Database.SqlQuery<bool>("Sp_User_Login @UserName, @PasswordHash", sqlParams).SingleOrDefault();
         }
-        public static string MD5Hash(string input)
+        private static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();
             MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();

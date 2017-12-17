@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountModel.cs" />
+    <Compile Include="AccountService.cs" />
     <Compile Include="Framework\Attactment.cs" />
     <Compile Include="Framework\Category.cs" />
     <Compile Include="Framework\CategoryNewsMapping.cs" />
