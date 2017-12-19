@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPUWeb", "EPUWeb\EPUWeb.csproj", "{4B5B4690-FB70-4A8A-A471-408B0AC2AA3D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{A5F4F630-707F-4FFE-B309-D2029055C4F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{4B5B4690-FB70-4A8A-A471-408B0AC2AA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B5B4690-FB70-4A8A-A471-408B0AC2AA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B5B4690-FB70-4A8A-A471-408B0AC2AA3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5F4F630-707F-4FFE-B309-D2029055C4F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5F4F630-707F-4FFE-B309-D2029055C4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5F4F630-707F-4FFE-B309-D2029055C4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5F4F630-707F-4FFE-B309-D2029055C4F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
