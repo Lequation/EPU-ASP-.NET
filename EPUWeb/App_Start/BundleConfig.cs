@@ -31,22 +31,20 @@ namespace EPUWeb
 
             /*Temp Admin*/
             bundles.Add(new StyleBundle("~/Admin/login/css").Include(
-                      "~/Areas/Admin/src/vendors/bootstrap/dist/css/bootstrap.min.css",
-                      "~/Areas/Admin/src/vendors/font-awesome/css/font-awesome.min.css",
-                      "~/Areas/Admin/src/vendors/nprogress/nprogress.css",
-                      "~/Areas/Admin/src/vendors/animate.css/animate.min.css",
-                      "~/Areas/Admin/src/build/css/custom.min.css"));
+                      "~/Areas/Admin/Content/vendors/bootstrap/dist/css/bootstrap.min.css",
+                      "~/Areas/Admin/Content/vendors/font-awesome/css/font-awesome.min.css",
+                      "~/Areas/Admin/Content/vendors/nprogress/nprogress.css",
+                      "~/Areas/Admin/Content/vendors/animate.css/animate.min.css",
+                      "~/Areas/Admin/Content/build/css/custom.min.css"));
             bundles.Add(new StyleBundle("~/Admin/layout/css").Include(
-                      "~/Areas/Admin/src/vendors/bootstrap/dist/css/bootstrap.min.css",
-                      "~/Areas/Admin/src/vendors/font-awesome/css/font-awesome.min.css",
-                      "~/Areas/Admin/src/vendors/nprogress/nprogress.css",
-                      "~/Areas/Admin/src/build/css/custom.min.css"));
+                      "~/Areas/Admin/Content/vendors/bootstrap/dist/css/bootstrap.min.css",
+                      "~/Areas/Admin/Content/vendors/font-awesome/css/font-awesome.min.css",
+                      "~/Areas/Admin/Content/vendors/nprogress/nprogress.css"));
             bundles.Add(new ScriptBundle("~/Admin/layout/js").Include(
-                      "~/Areas/Admin/src/vendors/jquery/dist/jquery.min.js",
-                      "~/Areas/Admin/src/vendors/bootstrap/dist/js/bootstrap.min.js",
-                      "~/Areas/Admin/src/vendors/fastclick/lib/fastclick.js",
-                      "~/Areas/Admin/src/vendors/nprogress/nprogress.js",
-                      "~/Areas/Admin/src/build/js/custom.min.js"));
+                      "~/Areas/Admin/Content/vendors/jquery/dist/jquery.min.js",
+                      "~/Areas/Admin/Content/vendors/bootstrap/dist/js/bootstrap.min.js",
+                      "~/Areas/Admin/Content/vendors/fastclick/lib/fastclick.js",
+                      "~/Areas/Admin/Content/vendors/nprogress/nprogress.js"));
         }
     }
 }
