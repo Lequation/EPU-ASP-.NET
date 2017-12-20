@@ -38,8 +38,8 @@
                             <img src="@SessionUser.GetCurrentUser().Avata" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>John Doe</h2>
+                            <span>Xin chào,</span>
+                            <h2>@SessionUser.GetCurrentUser().FullName</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -90,7 +90,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="@SessionUser.GetCurrentUser().Avata" alt="">John Doe
+                                    <img src="@SessionUser.GetCurrentUser().Avata" alt="">@SessionUser.GetCurrentUser().UserName
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">

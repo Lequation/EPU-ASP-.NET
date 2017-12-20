@@ -90,3 +90,4 @@ E:\EPU\EPUWeb\EPUWeb\bin\Microsoft.AI.WindowsServer.xml
 E:\EPU\EPUWeb\EPUWeb\bin\Microsoft.AI.Web.xml
 E:\EPU\EPUWeb\EPUWeb\obj\Debug\EPUWeb.dll
 E:\EPU\EPUWeb\EPUWeb\obj\Debug\EPUWeb.pdb
+E:\EPU\EPUWeb\EPUWeb\obj\Debug\EPUWeb.csprojResolveAssemblyReference.cache

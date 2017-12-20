@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPUDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Attactment">
+    <Key>
+      <PropertyRef Name="AttactmentId" />
+    </Key>
+    <Property Name="AttactmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttactmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AttactmentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="News" Relationship="Self.FK_Attactment_News" FromRole="Attactment" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryOldId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryParentId" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="IsHome" Type="Int32" />
+    <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="MetaTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescrption" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TypeCategoryId" Type="Int32" />
+    <Property Name="LanguageId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Category_Department" FromRole="Category" ToRole="Department" />
+    <NavigationProperty Name="CategoryNewsMappings" Relationship="Self.FK_CategoryNewsMapping_Category" FromRole="Category" ToRole="CategoryNewsMapping" />
+  </EntityType>
+  <EntityType Name="CategoryNewsMapping">
+    <Key>
+      <PropertyRef Name="CategoryNewsMappingId" />
+    </Key>
+    <Property Name="CategoryNewsMappingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="NewsId" Type="Int32" />
+    <Property Name="IsFeaturedNews" Type="Boolean" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_CategoryNewsMapping_Category" FromRole="CategoryNewsMapping" ToRole="Category" />
+    <NavigationProperty Name="News" Relationship="Self.FK_CategoryNewsMapping_News" FromRole="CategoryNewsMapping" ToRole="News" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Name="ConfigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleAnanyticsId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacebookId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GooglePlusId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TwiterId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YoutubeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Hotline" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SeoKeywords" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhomeNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Department" FromRole="Department" ToRole="Category" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Department" FromRole="Department" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MailServer">
+    <Key>
+      <PropertyRef Name="MailServerId" />
+    </Key>
+    <Property Name="MailServerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Host" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SenderMail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EnableSSL" Type="Boolean" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Port" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="TypeMenuId" Type="Int32" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="MenuParentId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TypeMenu" Relationship="Self.FK_Menu_TypeMenu" FromRole="Menu" ToRole="TypeMenu" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateStartOn" Type="DateTime" Precision="3" />
+    <Property Name="DateStartActive" Type="DateTime" Precision="3" />
+    <Property Name="DateEndOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="ViewNumber" Type="Int32" />
+    <Property Name="LikeNumber" Type="Int32" />
+    <Property Name="CommentNumber" Type="Int32" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsLogin" Type="Boolean" />
+    <Property Name="MetaTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescrption" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Attactments" Relationship="Self.FK_Attactment_News" FromRole="News" ToRole="Attactment" />
+    <NavigationProperty Name="CategoryNewsMappings" Relationship="Self.FK_CategoryNewsMapping_News" FromRole="News" ToRole="CategoryNewsMapping" />
+    <NavigationProperty Name="Tags" Relationship="Self.FK_Tag_News" FromRole="News" ToRole="Tag" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="RoleFunctions" Relationship="Self.FK_RoleFunction_Role" FromRole="Role" ToRole="RoleFunction" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RoleFunction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="FunctionParentId" Type="Int32" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_RoleFunction_Role" FromRole="RoleFunction" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Slide">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="TypeSlideId" Type="Int32" />
+    <Property Name="IsImageMain" Type="Boolean" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="TypeSlide" Relationship="Self.FK_Slide_TypeSlide" FromRole="Slide" ToRole="TypeSlide" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TagSize" Type="Int32" />
+    <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NewsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="News" Relationship="Self.FK_Tag_News" FromRole="Tag" ToRole="News" />
+  </EntityType>
+  <EntityType Name="TypeCategory">
+    <Key>
+      <PropertyRef Name="TypeCategoryId" />
+    </Key>
+    <Property Name="TypeCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeCategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TypeMenu">
+    <Key>
+      <PropertyRef Name="TypeMenuId" />
+    </Key>
+    <Property Name="TypeMenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeMenuName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Menus" Relationship="Self.FK_Menu_TypeMenu" FromRole="TypeMenu" ToRole="Menu" />
+  </EntityType>
+  <EntityType Name="TypeSlide">
+    <Key>
+      <PropertyRef Name="TypeSlideId" />
+    </Key>
+    <Property Name="TypeSlideId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeSlideName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <NavigationProperty Name="Slides" Relationship="Self.FK_Slide_TypeSlide" FromRole="TypeSlide" ToRole="Slide" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailConfirmaed" Type="Boolean" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" />
+    <Property Name="Avata" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="LoginNewDate" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_User_Department" FromRole="User" ToRole="Department" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Attactment_News">
+    <End Role="News" Type="Self.News" Multiplicity="0..1" />
+    <End Role="Attactment" Type="Self.Attactment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="NewsId" />
+      </Principal>
+      <Dependent Role="Attactment">
+        <PropertyRef Name="NewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryNewsMapping_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategoryNewsMapping">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryNewsMapping_News">
+    <End Role="News" Type="Self.News" Multiplicity="0..1" />
+    <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="NewsId" />
+      </Principal>
+      <Dependent Role="CategoryNewsMapping">
+        <PropertyRef Name="NewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_TypeMenu">
+    <End Role="TypeMenu" Type="Self.TypeMenu" Multiplicity="0..1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeMenu">
+        <PropertyRef Name="TypeMenuId" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="TypeMenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tag_News">
+    <End Role="News" Type="Self.News" Multiplicity="1" />
+    <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="NewsId" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="NewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleFunction_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slide_TypeSlide">
+    <End Role="TypeSlide" Type="Self.TypeSlide" Multiplicity="0..1" />
+    <End Role="Slide" Type="Self.Slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeSlide">
+        <PropertyRef Name="TypeSlideId" />
+      </Principal>
+      <Dependent Role="Slide">
+        <PropertyRef Name="TypeSlideId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EPUDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attactments" EntityType="Self.Attactment" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="CategoryNewsMappings" EntityType="Self.CategoryNewsMapping" />
+    <EntitySet Name="Configs" EntityType="Self.Config" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="MailServers" EntityType="Self.MailServer" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RoleFunctions" EntityType="Self.RoleFunction" />
+    <EntitySet Name="Slides" EntityType="Self.Slide" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tags" EntityType="Self.Tag" />
+    <EntitySet Name="TypeCategories" EntityType="Self.TypeCategory" />
+    <EntitySet Name="TypeMenus" EntityType="Self.TypeMenu" />
+    <EntitySet Name="TypeSlides" EntityType="Self.TypeSlide" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Attactment_News" Association="Self.FK_Attactment_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="Attactment" EntitySet="Attactments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Department" Association="Self.FK_Category_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryNewsMapping_Category" Association="Self.FK_CategoryNewsMapping_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryNewsMapping_News" Association="Self.FK_CategoryNewsMapping_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Department" Association="Self.FK_User_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_TypeMenu" Association="Self.FK_Menu_TypeMenu">
+      <End Role="TypeMenu" EntitySet="TypeMenus" />
+      <End Role="Menu" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tag_News" Association="Self.FK_Tag_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="Tag" EntitySet="Tags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleFunction_Role" Association="Self.FK_RoleFunction_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleFunction" EntitySet="RoleFunctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slide_TypeSlide" Association="Self.FK_Slide_TypeSlide">
+      <End Role="TypeSlide" EntitySet="TypeSlides" />
+      <End Role="Slide" EntitySet="Slides" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -4529,7 +4529,8 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\images\avata\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="images\avata\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

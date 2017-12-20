@@ -1,0 +1,92 @@
+﻿@model EPUWeb.Models.User
+@using EPUWeb.Areas.Admin.Models
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section sectionjs{
+    <script src="~/Areas/Admin/Content/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông tin cá nhân <small>Thống kê hoạt động</small></h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                <div class="profile_img">
+                    <div id="crop-avatar">
+                        <!-- Current avatar -->
+                        <img class="img-responsive avatar-view" src="@Html.DisplayFor(model => model.Avata)" alt="Avatar" title="Change the avatar">
+                    </div>
+                </div>
+                <h3>@Html.DisplayFor(model => model.FullName)</h3>
+                <ul class="list-unstyled user_data">
+                    <li>
+                        <i class="fa fa-user user-profile-icon"></i> @Html.DisplayFor(model => model.UserName)
+                    </li>
+                    <li>
+                        <i class="fa fa-map-marker user-profile-icon"></i> @Html.DisplayFor(model => model.Address)
+                    </li>
+                    <li>
+                        <i class="fa fa-briefcase user-profile-icon"></i> @UserModel.DepartmentName(Model.DepartmentId ?? -1)
+                    </li>
+                    <li>
+                        <i class="fa fa-key user-profile-icon"></i> @UserModel.RoleName(Model.RoleId ?? -1)
+                    </li>
+                    <li class="m-top-xs">
+                        <i class="fa fa-envelope user-profile-icon"></i>
+                        <a href="mailto:@Html.DisplayFor(model => model.Email)">@Html.DisplayFor(model => model.Email)</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone user-profile-icon"></i> @Html.DisplayFor(model => model.PhoneNumber)
+                    </li>
+                    <li>
+                        <i class="fa fa-birthday-cake user-profile-icon"></i> @UserModel.BirthdayText(Model.Birthday)
+                    </li>
+                    <li>
+                        <i class="fa fa-smile-o user-profile-icon"></i> @Html.DisplayFor(model => model.Sex)
+                    </li>
+                </ul>
+                <a class="btn btn-success" href='@Url.Action("Edit", "User", new { id = Model.UserId })'><i class="fa fa-edit m-right-xs"></i>Sửa</a>
+                <br />
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Hoạt động</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                            <!-- start recent activity -->
+                            <ul class="messages">
+                                <li>
+                                    <img src="@Html.DisplayFor(model => model.Avata)" class="avatar" alt="Avatar">
+                                    <div class="message_date">
+                                        <h3 class="date text-info">24</h3>
+                                        <p class="month">May</p>
+                                    </div>
+                                    <div class="message_wrapper">
+                                        <h4 class="heading">@Html.DisplayFor(model => model.FullName)</h4>
+                                        <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                        <br />
+                                        <p class="url">
+                                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- end recent activity -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
