@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EPUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attactment">
+          <Key>
+            <PropertyRef Name="AttactmentId" />
+          </Key>
+          <Property Name="AttactmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttactmentName" Type="nvarchar" MaxLength="500" />
+          <Property Name="AttactmentLink" Type="nvarchar(max)" />
+          <Property Name="NewsId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryOldId" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="500" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="CategoryParentId" Type="int" Nullable="false" />
+          <Property Name="Location" Type="int" />
+          <Property Name="IsHome" Type="int" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="500" />
+          <Property Name="MetaDescrption" Type="nvarchar" MaxLength="300" />
+          <Property Name="TypeCategoryId" Type="int" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="CategoryNewsMapping">
+          <Key>
+            <PropertyRef Name="CategoryNewsMappingId" />
+          </Key>
+          <Property Name="CategoryNewsMappingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="NewsId" Type="int" />
+          <Property Name="IsFeaturedNews" Type="bit" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="ConfigId" />
+          </Key>
+          <Property Name="ConfigId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar(max)" />
+          <Property Name="GoogleAnanyticsId" Type="nvarchar(max)" />
+          <Property Name="FacebookId" Type="nvarchar(max)" />
+          <Property Name="GooglePlusId" Type="nvarchar(max)" />
+          <Property Name="TwiterId" Type="nvarchar(max)" />
+          <Property Name="YoutubeId" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="Hotline" Type="nchar" MaxLength="20" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SeoKeywords" Type="nvarchar" MaxLength="200" />
+          <Property Name="SeoDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhomeNumber" Type="nchar" MaxLength="15" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Code" Type="nvarchar" MaxLength="5" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="MailServer">
+          <Key>
+            <PropertyRef Name="MailServerId" />
+          </Key>
+          <Property Name="MailServerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Host" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SenderMail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EnableSSL" Type="bit" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Port" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="TypeMenuId" Type="int" />
+          <Property Name="Location" Type="int" />
+          <Property Name="MenuParentId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Contents" Type="nvarchar(max)" />
+          <Property Name="DateStartOn" Type="datetime" />
+          <Property Name="DateStartActive" Type="datetime" />
+          <Property Name="DateEndOn" Type="datetime" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="ViewNumber" Type="int" />
+          <Property Name="LikeNumber" Type="int" />
+          <Property Name="CommentNumber" Type="int" />
+          <Property Name="Location" Type="int" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsLogin" Type="bit" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="500" />
+          <Property Name="MetaDescrption" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="RoleFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="FunctionParentId" Type="int" />
+          <Property Name="Location" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="TypeSlideId" Type="int" />
+          <Property Name="IsImageMain" Type="bit" />
+          <Property Name="Location" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="TagSize" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+          <Property Name="NewsId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeCategory">
+          <Key>
+            <PropertyRef Name="TypeCategoryId" />
+          </Key>
+          <Property Name="TypeCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeCategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeMenu">
+          <Key>
+            <PropertyRef Name="TypeMenuId" />
+          </Key>
+          <Property Name="TypeMenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeMenuName" Type="nvarchar" MaxLength="500" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeSlide">
+          <Key>
+            <PropertyRef Name="TypeSlideId" />
+          </Key>
+          <Property Name="TypeSlideId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeSlideName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmailConfirmaed" Type="bit" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Sex" Type="nchar" MaxLength="10" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" />
+          <Property Name="Avata" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="LoginNewDate" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <Association Name="FK_Attactment_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="Attactment" Type="Self.Attactment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="Attactment">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryNewsMapping_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryNewsMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryNewsMapping_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="CategoryNewsMapping">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_TypeMenu">
+          <End Role="TypeMenu" Type="Self.TypeMenu" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMenu">
+              <PropertyRef Name="TypeMenuId" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="TypeMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_TypeSlide">
+          <End Role="TypeSlide" Type="Self.TypeSlide" Multiplicity="0..1" />
+          <End Role="Slide" Type="Self.Slide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeSlide">
+              <PropertyRef Name="TypeSlideId" />
+            </Principal>
+            <Dependent Role="Slide">
+              <PropertyRef Name="TypeSlideId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_News">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EPUModelStoreContainer">
+          <EntitySet Name="Attactment" EntityType="Self.Attactment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryNewsMapping" EntityType="Self.CategoryNewsMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailServer" EntityType="Self.MailServer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleFunction" EntityType="Self.RoleFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeCategory" EntityType="Self.TypeCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeMenu" EntityType="Self.TypeMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeSlide" EntityType="Self.TypeSlide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attactment_News" Association="Self.FK_Attactment_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="Attactment" EntitySet="Attactment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Department" Association="Self.FK_Category_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryNewsMapping_Category" Association="Self.FK_CategoryNewsMapping_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryNewsMapping_News" Association="Self.FK_CategoryNewsMapping_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_TypeMenu" Association="Self.FK_Menu_TypeMenu">
+            <End Role="TypeMenu" EntitySet="TypeMenu" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Role" Association="Self.FK_RoleFunction_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleFunction" EntitySet="RoleFunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_TypeSlide" Association="Self.FK_Slide_TypeSlide">
+            <End Role="TypeSlide" EntitySet="TypeSlide" />
+            <End Role="Slide" EntitySet="Slide" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_News" Association="Self.FK_Tag_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Department" Association="Self.FK_User_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EPUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attactment">
+          <Key>
+            <PropertyRef Name="AttactmentId" />
+          </Key>
+          <Property Name="AttactmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttactmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AttactmentLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="News" Relationship="Self.FK_Attactment_News" FromRole="Attactment" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryOldId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryParentId" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="IsHome" Type="Int32" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="MetaTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescrption" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TypeCategoryId" Type="Int32" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Category_Department" FromRole="Category" ToRole="Department" />
+          <NavigationProperty Name="CategoryNewsMappings" Relationship="Self.FK_CategoryNewsMapping_Category" FromRole="Category" ToRole="CategoryNewsMapping" />
+        </EntityType>
+        <EntityType Name="CategoryNewsMapping">
+          <Key>
+            <PropertyRef Name="CategoryNewsMappingId" />
+          </Key>
+          <Property Name="CategoryNewsMappingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="NewsId" Type="Int32" />
+          <Property Name="IsFeaturedNews" Type="Boolean" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_CategoryNewsMapping_Category" FromRole="CategoryNewsMapping" ToRole="Category" />
+          <NavigationProperty Name="News" Relationship="Self.FK_CategoryNewsMapping_News" FromRole="CategoryNewsMapping" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="ConfigId" />
+          </Key>
+          <Property Name="ConfigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoogleAnanyticsId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GooglePlusId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TwiterId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YoutubeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Hotline" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="SeoTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SeoKeywords" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhomeNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Department" FromRole="Department" ToRole="Category" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Department" FromRole="Department" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MailServer">
+          <Key>
+            <PropertyRef Name="MailServerId" />
+          </Key>
+          <Property Name="MailServerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Host" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SenderMail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnableSSL" Type="Boolean" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Port" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="TypeMenuId" Type="Int32" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="MenuParentId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TypeMenu" Relationship="Self.FK_Menu_TypeMenu" FromRole="Menu" ToRole="TypeMenu" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStartOn" Type="DateTime" Precision="3" />
+          <Property Name="DateStartActive" Type="DateTime" Precision="3" />
+          <Property Name="DateEndOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ViewNumber" Type="Int32" />
+          <Property Name="LikeNumber" Type="Int32" />
+          <Property Name="CommentNumber" Type="Int32" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsLogin" Type="Boolean" />
+          <Property Name="MetaTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescrption" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Attactments" Relationship="Self.FK_Attactment_News" FromRole="News" ToRole="Attactment" />
+          <NavigationProperty Name="CategoryNewsMappings" Relationship="Self.FK_CategoryNewsMapping_News" FromRole="News" ToRole="CategoryNewsMapping" />
+          <NavigationProperty Name="Tags" Relationship="Self.FK_Tag_News" FromRole="News" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="RoleFunctions" Relationship="Self.FK_RoleFunction_Role" FromRole="Role" ToRole="RoleFunction" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="RoleFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="FunctionParentId" Type="Int32" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleFunction_Role" FromRole="RoleFunction" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="TypeSlideId" Type="Int32" />
+          <Property Name="IsImageMain" Type="Boolean" />
+          <Property Name="Location" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="TypeSlide" Relationship="Self.FK_Slide_TypeSlide" FromRole="Slide" ToRole="TypeSlide" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TagSize" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NewsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="News" Relationship="Self.FK_Tag_News" FromRole="Tag" ToRole="News" />
+        </EntityType>
+        <EntityType Name="TypeCategory">
+          <Key>
+            <PropertyRef Name="TypeCategoryId" />
+          </Key>
+          <Property Name="TypeCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeCategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TypeMenu">
+          <Key>
+            <PropertyRef Name="TypeMenuId" />
+          </Key>
+          <Property Name="TypeMenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeMenuName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_Menu_TypeMenu" FromRole="TypeMenu" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="TypeSlide">
+          <Key>
+            <PropertyRef Name="TypeSlideId" />
+          </Key>
+          <Property Name="TypeSlideId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeSlideName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <NavigationProperty Name="Slides" Relationship="Self.FK_Slide_TypeSlide" FromRole="TypeSlide" ToRole="Slide" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailConfirmaed" Type="Boolean" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" />
+          <Property Name="Avata" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="LoginNewDate" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_User_Department" FromRole="User" ToRole="Department" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Attactment_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="Attactment" Type="Self.Attactment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="Attactment">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryNewsMapping_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryNewsMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryNewsMapping_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="CategoryNewsMapping" Type="Self.CategoryNewsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="CategoryNewsMapping">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_TypeMenu">
+          <End Role="TypeMenu" Type="Self.TypeMenu" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMenu">
+              <PropertyRef Name="TypeMenuId" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="TypeMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_News">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_TypeSlide">
+          <End Role="TypeSlide" Type="Self.TypeSlide" Multiplicity="0..1" />
+          <End Role="Slide" Type="Self.Slide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeSlide">
+              <PropertyRef Name="TypeSlideId" />
+            </Principal>
+            <Dependent Role="Slide">
+              <PropertyRef Name="TypeSlideId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EPUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attactments" EntityType="Self.Attactment" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CategoryNewsMappings" EntityType="Self.CategoryNewsMapping" />
+          <EntitySet Name="Configs" EntityType="Self.Config" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="MailServers" EntityType="Self.MailServer" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleFunctions" EntityType="Self.RoleFunction" />
+          <EntitySet Name="Slides" EntityType="Self.Slide" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="TypeCategories" EntityType="Self.TypeCategory" />
+          <EntitySet Name="TypeMenus" EntityType="Self.TypeMenu" />
+          <EntitySet Name="TypeSlides" EntityType="Self.TypeSlide" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Attactment_News" Association="Self.FK_Attactment_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="Attactment" EntitySet="Attactments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Department" Association="Self.FK_Category_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryNewsMapping_Category" Association="Self.FK_CategoryNewsMapping_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryNewsMapping_News" Association="Self.FK_CategoryNewsMapping_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="CategoryNewsMapping" EntitySet="CategoryNewsMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Department" Association="Self.FK_User_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_TypeMenu" Association="Self.FK_Menu_TypeMenu">
+            <End Role="TypeMenu" EntitySet="TypeMenus" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_News" Association="Self.FK_Tag_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Role" Association="Self.FK_RoleFunction_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleFunction" EntitySet="RoleFunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_TypeSlide" Association="Self.FK_Slide_TypeSlide">
+            <End Role="TypeSlide" EntitySet="TypeSlides" />
+            <End Role="Slide" EntitySet="Slides" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EPUModelStoreContainer" CdmEntityContainer="EPUEntities">
+          <EntitySetMapping Name="Attactments">
+            <EntityTypeMapping TypeName="EPUModel.Attactment">
+              <MappingFragment StoreEntitySet="Attactment">
+                <ScalarProperty Name="AttactmentId" ColumnName="AttactmentId" />
+                <ScalarProperty Name="AttactmentName" ColumnName="AttactmentName" />
+                <ScalarProperty Name="AttactmentLink" ColumnName="AttactmentLink" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="EPUModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryOldId" ColumnName="CategoryOldId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryParentId" ColumnName="CategoryParentId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescrption" ColumnName="MetaDescrption" />
+                <ScalarProperty Name="TypeCategoryId" ColumnName="TypeCategoryId" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryNewsMappings">
+            <EntityTypeMapping TypeName="EPUModel.CategoryNewsMapping">
+              <MappingFragment StoreEntitySet="CategoryNewsMapping">
+                <ScalarProperty Name="CategoryNewsMappingId" ColumnName="CategoryNewsMappingId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="IsFeaturedNews" ColumnName="IsFeaturedNews" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configs">
+            <EntityTypeMapping TypeName="EPUModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="ConfigId" ColumnName="ConfigId" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="GoogleAnanyticsId" ColumnName="GoogleAnanyticsId" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+                <ScalarProperty Name="GooglePlusId" ColumnName="GooglePlusId" />
+                <ScalarProperty Name="TwiterId" ColumnName="TwiterId" />
+                <ScalarProperty Name="YoutubeId" ColumnName="YoutubeId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoKeywords" ColumnName="SeoKeywords" />
+                <ScalarProperty Name="SeoDescription" ColumnName="SeoDescription" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="EPUModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhomeNumber" ColumnName="PhomeNumber" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="EPUModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailServers">
+            <EntityTypeMapping TypeName="EPUModel.MailServer">
+              <MappingFragment StoreEntitySet="MailServer">
+                <ScalarProperty Name="MailServerId" ColumnName="MailServerId" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="SenderMail" ColumnName="SenderMail" />
+                <ScalarProperty Name="EnableSSL" ColumnName="EnableSSL" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="EPUModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="TypeMenuId" ColumnName="TypeMenuId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MenuParentId" ColumnName="MenuParentId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="EPUModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewsCode" ColumnName="NewsCode" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="DateStartOn" ColumnName="DateStartOn" />
+                <ScalarProperty Name="DateStartActive" ColumnName="DateStartActive" />
+                <ScalarProperty Name="DateEndOn" ColumnName="DateEndOn" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="LikeNumber" ColumnName="LikeNumber" />
+                <ScalarProperty Name="CommentNumber" ColumnName="CommentNumber" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsLogin" ColumnName="IsLogin" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescrption" ColumnName="MetaDescrption" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="EPUModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleFunctions">
+            <EntityTypeMapping TypeName="EPUModel.RoleFunction">
+              <MappingFragment StoreEntitySet="RoleFunction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="FunctionParentId" ColumnName="FunctionParentId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slides">
+            <EntityTypeMapping TypeName="EPUModel.Slide">
+              <MappingFragment StoreEntitySet="Slide">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="TypeSlideId" ColumnName="TypeSlideId" />
+                <ScalarProperty Name="IsImageMain" ColumnName="IsImageMain" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="EPUModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TagSize" ColumnName="TagSize" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeCategories">
+            <EntityTypeMapping TypeName="EPUModel.TypeCategory">
+              <MappingFragment StoreEntitySet="TypeCategory">
+                <ScalarProperty Name="TypeCategoryId" ColumnName="TypeCategoryId" />
+                <ScalarProperty Name="TypeCategoryName" ColumnName="TypeCategoryName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeMenus">
+            <EntityTypeMapping TypeName="EPUModel.TypeMenu">
+              <MappingFragment StoreEntitySet="TypeMenu">
+                <ScalarProperty Name="TypeMenuId" ColumnName="TypeMenuId" />
+                <ScalarProperty Name="TypeMenuName" ColumnName="TypeMenuName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeSlides">
+            <EntityTypeMapping TypeName="EPUModel.TypeSlide">
+              <MappingFragment StoreEntitySet="TypeSlide">
+                <ScalarProperty Name="TypeSlideId" ColumnName="TypeSlideId" />
+                <ScalarProperty Name="TypeSlideName" ColumnName="TypeSlideName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EPUModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmaed" ColumnName="EmailConfirmaed" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="Avata" ColumnName="Avata" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="LoginNewDate" ColumnName="LoginNewDate" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

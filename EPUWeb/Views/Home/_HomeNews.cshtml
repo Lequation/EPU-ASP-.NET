@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EPUWeb.EF.CategoryNewsMapping>
+
+@if (Model != null)
+{
+    int k = 0;
+    <section class="course-section__block padding ptb-xs-60">
+        <div class="container">
+            <div class="row pb-30">
+                <div class="col-sm-6 mb-20">
+                    <h2>Tin tức</h2>
+                </div>
+            </div>
+            <div class="row pb-30">
+                @foreach (var item in Model)
+                {
+                    k++;
+                    if (k <= 3)
+                    {
+                        <div class="col-md-3 col-sm-6 mb-30">
+                            <div class="courses-block img-scale">
+                                <figure class="img__block">
+                                    <a href="~/chi-tiet-tin/@(item.News.Url + "-" + item.News.NewsId)">
+                                        <img class="img-responsive" src="..@("/Uploads/_thumbs/Images/default.jpg")" alt="@item.News.Title">
+                                    </a>
+                                </figure>
+                                <div class="courses-content__block">
+                                    <div class="class_time">
+                                        <h3>
+                                            <a href="~/chi-tiet-tin/@(item.News.Url + "-" + item.News.NewsId)" style="color:#000;">
+                                                @(item.News.Title.Length > 35 ? item.News.Title.Substring(0, item.News.Title.Substring(0, 35).LastIndexOf(' ')) + "..." : item.News.Title)
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <p>
+                                        @(item.News.Description.Length > 75 ? item.News.Description.Substring(0, item.News.Description.Substring(0, 75).LastIndexOf(' ')) + "..." : item.News.Description)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        k = 0;
+                        break;
+                    }
+
+                }
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="sidebar-widget">
+                        <h4>Tin nổi bật</h4>
+                        <div class="widget-search pt-15">
+                            <ul class="categories">
+                                @foreach (var item in Model)
+                                {
+                                    k++;
+                                    if (k > 3)
+                                    {
+                                        <li>
+                                            <a href="~/chi-tiet-tin/@(item.News.Url + "-" + item.News.NewsId)">
+                                                @(item.News.Title.Length > 35 ? item.News.Title.Substring(0, item.News.Title.Substring(0, 35).LastIndexOf(' ')) + "..." : item.News.Title)
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+}

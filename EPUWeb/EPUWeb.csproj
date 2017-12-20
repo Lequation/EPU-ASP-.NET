@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -53,6 +59,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,79 +150,193 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="EF\Attactment.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Category.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CategoryNewsMapping.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Config.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Department.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EPUNews.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPUNews.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EPUNews.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EPUNews.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPUNews.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Language.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\MailServer.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Menu.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\News.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Role.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RoleFunction.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Slide.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Tag.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TypeCategory.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TypeMenu.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TypeSlide.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\User.cs">
+      <DependentUpon>EPUNews.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\css\bootsnav.css" />
+    <Content Include="Content\css\bootsnav2.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\footer.css" />
+    <Content Include="Content\css\index1.css" />
+    <Content Include="Content\css\index2.css" />
+    <Content Include="Content\css\index3.css" />
+    <Content Include="Content\css\ionicons.css" />
+    <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Content\css\layers.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\settings.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\4.png" />
+    <Content Include="Content\images\5.png" />
+    <Content Include="Content\images\6.png" />
+    <Content Include="Content\images\about-1.jpg" />
+    <Content Include="Content\images\about-2.jpg" />
+    <Content Include="Content\images\about_img.png" />
+    <Content Include="Content\images\author.jpg" />
+    <Content Include="Content\images\banner.PNG" />
+    <Content Include="Content\images\bannerx.png" />
+    <Content Include="Content\images\banner\bannerepucs2.jpg" />
+    <Content Include="Content\images\banner\epuwind.jpg" />
+    <Content Include="Content\images\banner\galasvepu.jpg" />
+    <Content Include="Content\images\banner\slider1.jpg" />
+    <Content Include="Content\images\banner\slider2.jpg" />
+    <Content Include="Content\images\banner\slider3.jpg" />
+    <Content Include="Content\images\banner\slide_epu.jpg" />
+    <Content Include="Content\images\blog.jpg" />
+    <Content Include="Content\images\blog\1.jpg" />
+    <Content Include="Content\images\blog\2.jpg" />
+    <Content Include="Content\images\blog\3.jpg" />
+    <Content Include="Content\images\blog\5.jpg" />
+    <Content Include="Content\images\blog\6.jpg" />
+    <Content Include="Content\images\blog\bg_1.jpg" />
+    <Content Include="Content\images\blog\blog-img1.jpg" />
+    <Content Include="Content\images\blog\blog-img2.jpg" />
+    <Content Include="Content\images\blog\blog-img3.jpg" />
+    <Content Include="Content\images\blog\blog-small-img.jpg" />
+    <Content Include="Content\images\blog\blog-small-img1.jpg" />
+    <Content Include="Content\images\blog\blog-small-img2.jpg" />
+    <Content Include="Content\images\blog\img2.jpg" />
+    <Content Include="Content\images\cate_1.jpg" />
+    <Content Include="Content\images\cate_2.jpg" />
+    <Content Include="Content\images\cate_4.jpg" />
+    <Content Include="Content\images\en.gif" />
+    <Content Include="Content\images\footer-logo.png" />
+    <Content Include="Content\images\gallery\project-img.jpg" />
+    <Content Include="Content\images\gallery\project-img1.jpg" />
+    <Content Include="Content\images\gallery\project-img2.jpg" />
+    <Content Include="Content\images\gallery\project-img3.jpg" />
+    <Content Include="Content\images\img1.jpg" />
+    <Content Include="Content\images\img2.jpg" />
+    <Content Include="Content\images\img3.jpg" />
+    <Content Include="Content\images\img4.jpg" />
+    <Content Include="Content\images\logo-epu.jpg" />
+    <Content Include="Content\images\logo-epu.png" />
+    <Content Include="Content\images\logo-moblie.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo3.png" />
+    <Content Include="Content\images\mapepu.PNG" />
+    <Content Include="Content\images\member-01.jpg" />
+    <Content Include="Content\images\member-02.jpg" />
+    <Content Include="Content\images\portfolio3\1.jpg" />
+    <Content Include="Content\images\portfolio3\2.jpg" />
+    <Content Include="Content\images\portfolio3\3.jpg" />
+    <Content Include="Content\images\portfolio3\4.jpg" />
+    <Content Include="Content\images\portfolio3\5.jpg" />
+    <Content Include="Content\images\thongbaochung.png" />
+    <Content Include="Content\images\vi.gif" />
+    <Content Include="EF\EPUNews.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EPUNews.Context.cs</LastGenOutput>
+      <DependentUpon>EPUNews.edmx</DependentUpon>
+    </Content>
+    <Content Include="EF\EPUNews.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EPUNews.edmx</DependentUpon>
+      <LastGenOutput>EPUNews.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
-    <Content Include="Scripts\jquery-1.12.4.js" />
-    <Content Include="Scripts\jquery-1.12.4.min.js" />
-    <Content Include="Scripts\jquery-1.12.4.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="Scripts\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="Scripts\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="Scripts\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\custom.js" />
+    <Content Include="Scripts\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\js\isotope.pkgd.min.js" />
+    <Content Include="Scripts\js\jquery.appear.js" />
+    <Content Include="Scripts\js\jquery.easing.js" />
+    <Content Include="Scripts\js\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\js\jquery.matchHeight-min.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\js\jquery.parallax-1.1.3.js" />
+    <Content Include="Scripts\js\jquery.revolution.js" />
+    <Content Include="Scripts\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\js\masonry.pkgd.min.js" />
+    <Content Include="Scripts\js\owl.carousel.js" />
+    <Content Include="Uploads\_thumbs\Images\default.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -226,13 +348,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -244,7 +365,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="EF\EPUNews.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EPUNews.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EF\EPUNews.edmx.diagram">
+      <DependentUpon>EPUNews.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Slide.cshtml" />
+    <Content Include="Views\Home\_HomeNews.cshtml" />
+    <Content Include="Views\Home\_HomeNotifications.cshtml" />
+    <Content Include="Views\Home\_HomeNotificationCommon.cshtml" />
+    <Content Include="Views\Home\_HomeNotificationEducate.cshtml" />
+    <Content Include="Views\Home\_HomeNotificationOther.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

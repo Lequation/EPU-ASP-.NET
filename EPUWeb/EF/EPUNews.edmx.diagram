@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cc163480a1548ff837ce38267b6f9fc" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="EPUModel.Attactment" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Category" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.CategoryNewsMapping" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Config" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Department" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Language" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.MailServer" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Menu" Width="1.5" PointX="11" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.News" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Role" Width="1.5" PointX="5.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.RoleFunction" Width="1.5" PointX="8" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Slide" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.Tag" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.TypeCategory" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.TypeMenu" Width="1.5" PointX="8.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.TypeSlide" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EPUModel.User" Width="1.5" PointX="8" PointY="14.875" IsExpanded="true" />
+        <AssociationConnector Association="EPUModel.FK_Attactment_News" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_Category_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_CategoryNewsMapping_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_CategoryNewsMapping_News" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_User_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_Menu_TypeMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_Tag_News" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_RoleFunction_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="EPUModel.FK_Slide_TypeSlide" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

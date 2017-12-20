@@ -1,0 +1,15 @@
+﻿
+<section class="plaing_wrap__block padding ptb-xs-60">
+    <div class="container">
+        <div class="row pb-30 ">
+            <div class="col-sm-12 mb-20">
+                <h2>Thông báo</h2>
+            </div>
+        </div>
+        <div class="row">
+            @Html.Action("LoadHomeNotificationCommon", new { CategoryId = 43, Number = 3 })
+            @Html.Action("LoadHomeNotificationEducate", new { CategoryId = 35, Number = 3 })
+            @Html.Action("LoadHomeNotificationOther", new { CategoryId = 43, Number = 3 })
+        </div>
+    </div>
+</section>

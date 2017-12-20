@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/config/applicationhost.config
+/.vs/EPUWeb/v15
+/EPUWeb/bin
+/EPUWeb/obj/Debug
+/packages

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EPUWeb.EF.CategoryNewsMapping>
+
+@if (Model != null)
+{
+    <div class="col-sm-4">
+        <div class="single_plan__block block_bg2 mb-30">
+            <div class="plan-content-box">
+                <h4>Thông báo đào tạo</h4>
+            </div>
+        </div>
+        <div>
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="~/chi-tiet-tin/@(item.News.Url + "-" + item.News.NewsId)" style="color:#000;">
+                            @(item.News.Title.Length > 35 ? item.News.Title.Substring(0, item.News.Title.Substring(0, 35).LastIndexOf(' ')) + "..." : item.News.Title)
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}

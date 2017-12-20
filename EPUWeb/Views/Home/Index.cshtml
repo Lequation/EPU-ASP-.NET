@@ -2,30 +2,185 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!--Tin tuc, su kien Section section Here-->
+@Html.Action("LoadHomeNews", new { CategoryId=43, Number=8 })
+<!--Tin tuc, su kien Section section End-->
+<!--why we use section Here-->
+@Html.Partial("_HomeNotifications")
+<!--why we use section End-->
+<!--Tuyen sinh Section section Here-->
+<section class="course-section__block padding ptb-xs-60">
+    <div class="container">
+        <div class="row pb-30">
+            <div class="col-sm-6 mb-20">
+                <h2>Tuyển sinh</h2>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="row pb-30">
+            <div class="col-md-3 col-sm-6 mb-30">
+                <div class="courses-block img-scale">
+
+                    <figure class="img__block">
+                        <img class="img-responsive" src="~/Content/images/img1.jpg" alt="courses">
+
+                    </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Đại học</h3></div>
+                        <h3><a href="#">IELTS</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-30">
+                <div class="courses-block img-scale">
+
+                    <figure class="img__block">
+                        <img class="img-responsive" src="~/Content/images/img2.jpg" alt="courses">
+
+                    </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Cao học</h3>  </div>
+                        <h3 class="item-title"><a href="#">IELTS</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="courses-block img-scale">
+
+                    <figure class="img__block">
+                        <img class="img-responsive" src="http://theembazaar.com/tf/educate/~/Content/images/img3.jpg" alt="courses">
+
+                    </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Nghiên cứu sinh</h3></div>
+                        <h3 class="item-title"><a href="#">Regular MBA</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="courses-block img-scale">
+
+                    <figure class="img__block">
+                        <img class="img-responsive" src="http://theembazaar.com/tf/educate/~/Content/images/img4.jpg" alt="courses">
+
+                    </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Tuyển sinh khác</h3></div>
+                        <h3><a href="#">GMAT</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+<!--Ts Section section End-->
+<!--hoat dong sinh vien Section section Here-->
+<section class="latest__block padding ptb-xs-60">
+    <div class="container">
+        <div class="row pb-30 ">
+            <div class="col-sm-12 mb-20">
+                <h2>Hoạt động của sinh viên</h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-30">
+                <div class="img-scale">
+                    <figure> <img src="http://theembazaar.com/tf/educate/~/Content/images/blog/blog-img1.jpg" alt=""> </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Hoạt động đoàn thể</h3></div>
+                        <h3><a href="#">IELTS</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-30">
+                <div class="img-scale">
+                    <figure> <img src="http://theembazaar.com/tf/educate/~/Content/images/blog/blog-img2.jpg" alt=""> </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Thành tích sinh viên</h3></div>
+                        <h3><a href="#">IELTS</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="img-scale">
+                    <figure> <img src="http://theembazaar.com/tf/educate/~/Content/images/blog/blog-img3.jpg" alt=""> </figure>
+                    <div class="courses-content__block">
+                        <div class="class_time"><h3>Các hoạt động khác</h3></div>
+                        <h3><a href="#">IELTS</a></h3>
+                        <p class="item-content">Rmply dummy text printing setting industry it’s free demo.</p>
+                        <a href="#" class="more_btn__block mt-0">xem thêm <i class="fa fa-angle-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>
+<!--Team section start-->
+<section class="course-section__block padding ptb-xs-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section_title__block ">
+                    <h2>VIDEO</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="single_member__block">
+                    <img src="http://theembazaar.com/tf/educate/~/Content/images/member-01.jpg" width="350px" height="850px" alt="" class="img-responsive">
+                    <div class="member_S_links__block">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <h4 class="author__block">John Doe <span>Chartered Financial Advisor</span></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore [...]</p>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="sidebar-widget">
+                    <h4>Video liên quan</h4>
+                    <div class="widget-search pt-15">
+                        <img src="http://theembazaar.com/tf/educate/~/Content/images/member-01.jpg" width="500px" height="220px" alt="" class="img-responsive">
+                        <ul class="categories">
+                            <li> <a>Video 1</a> </li>
+                            <li> <a>Video 2</a> </li>
+                            <li> <a>Video 3</a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<!--Team section End-->
