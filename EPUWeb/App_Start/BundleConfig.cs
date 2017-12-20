@@ -26,6 +26,27 @@ namespace EPUWeb
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+
+            /*Temp Admin*/
+            bundles.Add(new StyleBundle("~/Admin/login/css").Include(
+                      "~/Areas/Admin/src/vendors/bootstrap/dist/css/bootstrap.min.css",
+                      "~/Areas/Admin/src/vendors/font-awesome/css/font-awesome.min.css",
+                      "~/Areas/Admin/src/vendors/nprogress/nprogress.css",
+                      "~/Areas/Admin/src/vendors/animate.css/animate.min.css",
+                      "~/Areas/Admin/src/build/css/custom.min.css"));
+            bundles.Add(new StyleBundle("~/Admin/layout/css").Include(
+                      "~/Areas/Admin/src/vendors/bootstrap/dist/css/bootstrap.min.css",
+                      "~/Areas/Admin/src/vendors/font-awesome/css/font-awesome.min.css",
+                      "~/Areas/Admin/src/vendors/nprogress/nprogress.css",
+                      "~/Areas/Admin/src/build/css/custom.min.css"));
+            bundles.Add(new ScriptBundle("~/Admin/layout/js").Include(
+                      "~/Areas/Admin/src/vendors/jquery/dist/jquery.min.js",
+                      "~/Areas/Admin/src/vendors/bootstrap/dist/js/bootstrap.min.js",
+                      "~/Areas/Admin/src/vendors/fastclick/lib/fastclick.js",
+                      "~/Areas/Admin/src/vendors/nprogress/nprogress.js",
+                      "~/Areas/Admin/src/build/js/custom.min.js"));
         }
     }
 }
